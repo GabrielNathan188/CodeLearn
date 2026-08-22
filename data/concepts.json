@@ -1,0 +1,64 @@
+{
+  "concepts": [
+    {
+      "id": "variables",
+      "title": "Variáveis",
+      "category": "fundamentos",
+      "difficulty": "iniciante"
+    },
+    {
+      "id": "conditionals",
+      "title": "Condicionais",
+      "category": "fundamentos",
+      "difficulty": "iniciante"
+    },
+    {
+      "id": "loops",
+      "title": "Loops",
+      "category": "fundamentos",
+      "difficulty": "iniciante"
+    },
+    {
+      "id": "functions",
+      "title": "Funções",
+      "category": "fundamentos",
+      "difficulty": "iniciante"
+    },
+    {
+      "id": "arrays",
+      "title": "Listas/Arrays",
+      "category": "estruturas",
+      "difficulty": "iniciante"
+    },
+    {
+      "id": "oop",
+      "title": "Classes e Objetos",
+      "category": "paradigmas",
+      "difficulty": "intermediario"
+    },
+    {
+      "id": "data_structures",
+      "title": "Estruturas de Dados",
+      "category": "estruturas",
+      "difficulty": "intermediario"
+    },
+    {
+      "id": "apis",
+      "title": "APIs",
+      "category": "web",
+      "difficulty": "intermediario"
+    },
+    {
+      "id": "database",
+      "title": "Banco de Dados",
+      "category": "dados",
+      "difficulty": "intermediario"
+    },
+    {
+      "id": "git",
+      "title": "Git",
+      "category": "ferramentas",
+      "difficulty": "iniciante"
+    }
+  ]
+}

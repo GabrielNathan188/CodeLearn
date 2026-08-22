@@ -1,0 +1,658 @@
+
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CodeLearn - Aprenda a programar de verdade</title>
+    
+    <!-- Fontes -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/remixicon@4/fonts/remixicon.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="css/01-estilos-base.css">
+    <link rel="stylesheet" href="css/02-componentes.css">
+    <link rel="stylesheet" href="css/03-responsivo.css">
+</head>
+<body>
+
+    <!-- Toast Container -->
+    <div id="toast-container" class="toast-container"></div>
+
+    <!-- Navbar -->
+    <nav class="navbar" id="navbar">
+        <div class="nav-container">
+            <a href="#" class="nav-logo" onclick="navigateTo('hero')">
+                <span class="logo-icon"><i class="ri-terminal-box-fill"></i></span>
+                <span class="logo-text">CodeLearn</span>
+            </a>
+            
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#" onclick="navigateTo('roadmap')">Roadmap</a></li>
+                <li><a href="#" onclick="navigateTo('concepts')">Conceitos</a></li>
+                <li><a href="#" onclick="navigateTo('exercises')">Exercícios</a></li>
+                <li><a href="#" onclick="navigateTo('tips')">Dicas</a></li>
+                <li><a href="#" onclick="navigateTo('editor')">Editor</a></li>
+                <li><a href="#" onclick="navigateTo('ai')">IA</a></li>
+                <li><a href="#" onclick="navigateTo('community')">Comunidade</a></li>
+                <li><a href="#" onclick="navigateTo('dashboard')" id="navDashboard" style="display:none;">Dashboard</a></li>
+            </ul>
+            
+            <div class="nav-actions">
+                <button class="theme-toggle" id="themeToggle" onclick="Theme.toggle()" title="Alternar tema">
+                    <i class="ri-moon-line" id="themeIcon"></i>
+                </button>
+                <div class="auth-buttons" id="authButtons">
+                    <button class="btn btn-primary" onclick="Auth.openModal()">Entrar</button>
+                </div>
+                <div class="user-menu" id="userMenu" style="display:none;">
+                    <button class="user-btn" onclick="Auth.toggleUserMenu()">
+                        <div class="user-avatar" id="userAvatar">U</div>
+                        <span class="user-name" id="userName">Usuário</span>
+                        <i class="ri-arrow-down-s-line"></i>
+                    </button>
+                    <div class="user-dropdown" id="userDropdown">
+                        <a href="#" onclick="navigateTo('dashboard')"><i class="ri-dashboard-line"></i> Dashboard</a>
+                        <a href="#" onclick="navigateTo('ranking')"><i class="ri-trophy-line"></i> Ranking</a>
+                        <a href="#" onclick="Admin.openIfAdmin()" id="adminLink" style="display:none;"><i class="ri-shield-star-line"></i> Admin</a>
+                        <hr>
+                        <a href="#" onclick="Auth.logout()" class="logout"><i class="ri-logout-box-line"></i> Sair</a>
+                    </div>
+                </div>
+                <button class="mobile-toggle" id="mobileToggle" onclick="toggleMobileMenu()">
+                    <i class="ri-menu-line"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="hero">
+        <div class="hero-grid"></div>
+        <div class="hero-glow"></div>
+        <div class="hero-content">
+            <div class="hero-eyebrow">
+                <span class="eyebrow-dot"></span>
+                PLATAFORMA DE APRENDIZADO
+            </div>
+            <h1 class="hero-title">
+                Aprenda a<br>
+                <span class="neon-text">programar</span><br>
+                de verdade.
+            </h1>
+            <p class="hero-subtitle">
+                Do zero ao avançado.<br>
+                Conceitos claros, exercícios práticos<br>
+                e um caminho organizado para qualquer nível.
+            </p>
+            <div class="hero-buttons">
+                <button class="btn btn-primary btn-lg" onclick="navigateTo('roadmap')">
+                    Começar agora <i class="ri-arrow-right-line"></i>
+                </button>
+                <button class="btn btn-secondary btn-lg" onclick="navigateTo('exercises')">
+                    Ver exercícios
+                </button>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <span class="stat-number">50+</span>
+                    <span class="stat-label">Exercícios</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">10</span>
+                    <span class="stat-label">Conceitos</span>
+                </div>
+                <div class="stat">
+                    <span class="stat-number">∞</span>
+                    <span class="stat-label">Possibilidades</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-scroll">
+            <i class="ri-arrow-down-line"></i>
+        </div>
+    </section>
+
+    <!-- Roadmap Section -->
+    <section class="section" id="roadmap">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">01</span>
+                <h2 class="section-title">ROADMAP</h2>
+                <p class="section-subtitle">Por onde começar?</p>
+            </div>
+            
+            <div class="tabs">
+                <button class="tab-btn active" onclick="Roadmap.switchTab('iniciante', this)">Iniciante</button>
+                <button class="tab-btn" onclick="Roadmap.switchTab('intermediario', this)">Intermediário</button>
+                <button class="tab-btn" onclick="Roadmap.switchTab('avancado', this)">Avançado</button>
+            </div>
+            
+            <div class="roadmap-cards" id="roadmapCards">
+                <!-- Cards renderizados por JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Concepts Section -->
+    <section class="section" id="concepts">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">02</span>
+                <h2 class="section-title">CONCEITOS</h2>
+                <p class="section-subtitle">Fundamentos explicados</p>
+            </div>
+            
+            <div class="concepts-grid" id="conceptsGrid">
+                <!-- Cards renderizados por JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Exercises Section -->
+    <section class="section" id="exercises">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">03</span>
+                <h2 class="section-title">EXERCÍCIOS</h2>
+                <p class="section-subtitle">Pratique o que aprendeu</p>
+            </div>
+            
+            <div class="exercise-filters">
+                <button class="filter-btn active" onclick="Exercises.filter('all', this)">Todos</button>
+                <button class="filter-btn" onclick="Exercises.filter('iniciante', this)">Iniciante</button>
+                <button class="filter-btn" onclick="Exercises.filter('medio', this)">Médio</button>
+                <button class="filter-btn" onclick="Exercises.filter('avancado', this)">Avançado</button>
+            </div>
+            
+            <div class="exercises-list" id="exercisesList">
+                <!-- Lista renderizada por JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Tips Section -->
+    <section class="section" id="tips">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">04</span>
+                <h2 class="section-title">DICAS</h2>
+                <p class="section-subtitle">Conselhos de quem já passou por isso</p>
+            </div>
+            
+            <div class="tips-grid" id="tipsGrid">
+                <div class="tip-card">
+                    <span class="tip-number">01</span>
+                    <h3>Aprenda fazendo</h3>
+                    <p>A melhor forma de aprender programação é escrevendo código. Não apenas leia tutoriais — construa projetos reais.</p>
+                    <div class="tip-accent"></div>
+                </div>
+                <div class="tip-card">
+                    <span class="tip-number">02</span>
+                    <h3>Leia código de outras pessoas</h3>
+                    <p>Explore projetos open source no GitHub. Entender como outros desenvolvedores resolvem problemas é fundamental.</p>
+                    <div class="tip-accent"></div>
+                </div>
+                <div class="tip-card">
+                    <span class="tip-number">03</span>
+                    <h3>Faça projetos</h3>
+                    <p>Crie pequenos projetos para cada conceito novo. Um portfólio sólido vale mais que qualquer certificado.</p>
+                    <div class="tip-accent"></div>
+                </div>
+                <div class="tip-card">
+                    <span class="tip-number">04</span>
+                    <h3>Aprenda Git</h3>
+                    <p>Controle de versão é essencial. Comece a usar Git desde o primeiro dia para organizar seu código.</p>
+                    <div class="tip-accent"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Editor Section -->
+    <section class="section" id="editor">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">05</span>
+                <h2 class="section-title">EDITOR DE CÓDIGO</h2>
+                <p class="section-subtitle">Execute código direto no navegador</p>
+            </div>
+            
+            <div class="editor-container">
+                <div class="editor-toolbar">
+                    <select class="form-select" id="editorLanguage" onchange="Editor.changeLanguage()">
+                        <option value="javascript">JavaScript</option>
+                        <option value="python">Python</option>
+                    </select>
+                    <select class="form-select" id="editorChallenge" onchange="Editor.loadChallenge()">
+                        <option value="free">Código livre</option>
+                        <option value="hello">Hello World</option>
+                        <option value="variables">Variáveis</option>
+                        <option value="loops">Loops</option>
+                        <option value="functions">Funções</option>
+                    </select>
+                    <div class="toolbar-spacer"></div>
+                    <button class="btn btn-secondary" onclick="Editor.clear()">
+                        <i class="ri-eraser-line"></i> Limpar
+                    </button>
+                    <button class="btn btn-primary" onclick="Editor.run()">
+                        <i class="ri-play-fill"></i> Executar
+                    </button>
+                </div>
+                <div class="editor-split">
+                    <div class="editor-pane">
+                        <div class="pane-header">
+                            <i class="ri-code-s-slash-line"></i> Código
+                        </div>
+                        <textarea class="code-editor" id="codeEditor" spellcheck="false" placeholder="// Escreva seu código aqui..."></textarea>
+                    </div>
+                    <div class="editor-pane">
+                        <div class="pane-header">
+                            <i class="ri-terminal-line"></i> Resultado
+                        </div>
+                        <div class="code-output" id="codeOutput">
+                            <span class="output-placeholder">O resultado aparecerá aqui...</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- AI Section -->
+    <section class="section" id="ai">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">06</span>
+                <h2 class="section-title">IA — CodeBot</h2>
+                <p class="section-subtitle">Seu tutor de programação com inteligência artificial</p>
+            </div>
+            
+            <div class="chat-container">
+                <div class="chat-messages" id="chatMessages">
+                    <div class="chat-message bot">
+                        <div class="message-avatar bot"><i class="ri-robot-2-line"></i></div>
+                        <div class="message-content">
+                            <div class="message-name">CodeBot</div>
+                            <div class="message-bubble">Olá! Eu sou o CodeBot, seu tutor de IA. Posso ajudar com conceitos, explicar código, dar dicas e revisar suas soluções. O que você quer aprender hoje?</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="chat-input-area">
+                    <textarea class="chat-input" id="chatInput" placeholder="Pergunte algo sobre programação..." rows="1" onkeydown="AI.handleKeydown(event)"></textarea>
+                    <button class="btn btn-primary send-btn" onclick="AI.send()">
+                        <i class="ri-send-plane-fill"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section class="section" id="community">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">07</span>
+                <h2 class="section-title">COMUNIDADE</h2>
+                <p class="section-subtitle">Compartilhe conhecimento com outros desenvolvedores</p>
+            </div>
+            
+            <div class="community-header">
+                <button class="btn btn-primary" onclick="Forum.openNewPostModal()">
+                    <i class="ri-add-line"></i> Criar nova pergunta
+                </button>
+            </div>
+            
+            <div class="forum-list" id="forumList">
+                <!-- Posts renderizados por JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Ranking Section -->
+    <section class="section" id="ranking">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">08</span>
+                <h2 class="section-title">RANKING</h2>
+                <p class="section-subtitle">Top desenvolvedores da plataforma</p>
+            </div>
+            
+            <div class="ranking-container" id="rankingContainer">
+                <!-- Ranking renderizado por JS -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Dashboard Section -->
+    <section class="section" id="dashboard" style="display:none;">
+        <div class="container">
+            <div class="section-header">
+                <span class="section-number">09</span>
+                <h2 class="section-title">DASHBOARD</h2>
+                <p class="section-subtitle">Seu progresso na CodeLearn</p>
+            </div>
+            
+            <div class="dashboard-grid">
+                <!-- XP Card -->
+                <div class="dash-card xp-card">
+                    <div class="dash-card-header">
+                        <i class="ri-zap-line"></i>
+                        <h3>XP & Nível</h3>
+                    </div>
+                    <div class="xp-display">
+                        <div class="xp-level" id="dashLevel">1</div>
+                        <div class="xp-info">
+                            <div class="xp-numbers">
+                                <span id="dashCurrentXP">0</span> / <span id="dashNeededXP">100</span> XP
+                            </div>
+                            <div class="xp-bar">
+                                <div class="xp-bar-fill" id="dashXPBar" style="width:0%"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Streak Card -->
+                <div class="dash-card streak-card">
+                    <div class="dash-card-header">
+                        <i class="ri-fire-line"></i>
+                        <h3>Streak</h3>
+                    </div>
+                    <div class="streak-display">
+                        <span class="streak-number" id="dashStreak">0</span>
+                        <span class="streak-label">dias consecutivos</span>
+                    </div>
+                </div>
+                
+                <!-- Stats Card -->
+                <div class="dash-card stats-card">
+                    <div class="dash-card-header">
+                        <i class="ri-bar-chart-2-line"></i>
+                        <h3>Estatísticas</h3>
+                    </div>
+                    <div class="stats-grid">
+                        <div class="stat-item">
+                            <span class="stat-value" id="dashExercises">0</span>
+                            <span class="stat-label">Exercícios</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value" id="dashCodes">0</span>
+                            <span class="stat-label">Códigos</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value" id="dashPosts">0</span>
+                            <span class="stat-label">Posts</span>
+                        </div>
+                        <div class="stat-item">
+                            <span class="stat-value" id="dashAI">0</span>
+                            <span class="stat-label">IA usos</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Badges Card -->
+                <div class="dash-card badges-card">
+                    <div class="dash-card-header">
+                        <i class="ri-medal-line"></i>
+                        <h3>Badges</h3>
+                    </div>
+                    <div class="badges-grid" id="dashBadges">
+                        <!-- Badges renderizadas por JS -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <div class="nav-logo">
+                        <span class="logo-icon"><i class="ri-terminal-box-fill"></i></span>
+                        <span class="logo-text">CodeLearn</span>
+                    </div>
+                    <p>Aprenda a programar de verdade. Do zero ao avançado com conceitos claros e exercícios práticos.</p>
+                </div>
+                <div class="footer-links">
+                    <h4>Plataforma</h4>
+                    <a href="#" onclick="navigateTo('roadmap')">Roadmap</a>
+                    <a href="#" onclick="navigateTo('concepts')">Conceitos</a>
+                    <a href="#" onclick="navigateTo('exercises')">Exercícios</a>
+                    <a href="#" onclick="navigateTo('editor')">Editor</a>
+                </div>
+                <div class="footer-links">
+                    <h4>Comunidade</h4>
+                    <a href="#" onclick="navigateTo('community')">Fórum</a>
+                    <a href="#" onclick="navigateTo('ranking')">Ranking</a>
+                    <a href="#" onclick="navigateTo('ai')">CodeBot IA</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2026 CodeLearn. Todos os direitos reservados.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Auth Modal -->
+    <div class="modal" id="authModal">
+        <div class="modal-backdrop" onclick="Auth.closeModal()"></div>
+        <div class="modal-content auth-modal">
+            <button class="modal-close" onclick="Auth.closeModal()"><i class="ri-close-line"></i></button>
+            <div class="auth-tabs">
+                <button class="auth-tab active" onclick="Auth.switchTab('login', this)">Entrar</button>
+                <button class="auth-tab" onclick="Auth.switchTab('register', this)">Criar conta</button>
+            </div>
+            
+            <form class="auth-form" id="loginForm" onsubmit="Auth.login(event)">
+                <div class="form-group">
+                    <label>Usuário</label>
+                    <input type="text" class="form-input" id="loginUsername" required placeholder="Digite seu usuário">
+                </div>
+                <div class="form-group">
+                    <label>Senha</label>
+                    <input type="password" class="form-input" id="loginPassword" required placeholder="Digite sua senha">
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Entrar</button>
+            </form>
+            
+            <form class="auth-form" id="registerForm" style="display:none;" onsubmit="Auth.register(event)">
+                <div class="form-group">
+                    <label>Nome completo</label>
+                    <input type="text" class="form-input" id="regName" required placeholder="Seu nome">
+                </div>
+                <div class="form-group">
+                    <label>Usuário</label>
+                    <input type="text" class="form-input" id="regUsername" required placeholder="Escolha um usuário">
+                </div>
+                <div class="form-group">
+                    <label>Email</label>
+                    <input type="email" class="form-input" id="regEmail" required placeholder="seu@email.com">
+                </div>
+                <div class="form-group">
+                    <label>Senha</label>
+                    <input type="password" class="form-input" id="regPassword" required placeholder="Mínimo 6 caracteres">
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Criar conta</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Exercise Modal -->
+    <div class="modal" id="exerciseModal">
+        <div class="modal-backdrop" onclick="Exercises.closeModal()"></div>
+        <div class="modal-content exercise-modal">
+            <button class="modal-close" onclick="Exercises.closeModal()"><i class="ri-close-line"></i></button>
+            <div id="exerciseModalContent">
+                <!-- Conteúdo dinâmico -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Forum New Post Modal -->
+    <div class="modal" id="forumModal">
+        <div class="modal-backdrop" onclick="Forum.closeNewPostModal()"></div>
+        <div class="modal-content forum-modal">
+            <button class="modal-close" onclick="Forum.closeNewPostModal()"><i class="ri-close-line"></i></button>
+            <h3>Criar nova pergunta</h3>
+            <form onsubmit="Forum.createPost(event)">
+                <div class="form-group">
+                    <label>Título</label>
+                    <input type="text" class="form-input" id="postTitle" required placeholder="O que você quer perguntar?">
+                </div>
+                <div class="form-group">
+                    <label>Descrição</label>
+                    <textarea class="form-input" id="postDescription" required rows="4" placeholder="Descreva sua dúvida em detalhes..."></textarea>
+                </div>
+                <div class="form-group">
+                    <label>Tag</label>
+                    <select class="form-select" id="postTag" required>
+                        <option value="JavaScript">JavaScript</option>
+                        <option value="Python">Python</option>
+                        <option value="HTML/CSS">HTML/CSS</option>
+                        <option value="Git">Git</option>
+                        <option value="Banco de Dados">Banco de Dados</option>
+                        <option value="Geral">Geral</option>
+                    </select>
+                </div>
+                <button type="submit" class="btn btn-primary btn-full">Publicar</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Admin Modal -->
+    <div class="modal admin-modal" id="adminModal">
+        <div class="modal-backdrop" onclick="Admin.close()"></div>
+        <div class="modal-content admin-content">
+            <button class="modal-close" onclick="Admin.close()"><i class="ri-close-line"></i></button>
+            <h2><i class="ri-shield-star-line"></i> Painel Administrativo</h2>
+            
+            <div class="admin-tabs">
+                <button class="admin-tab active" onclick="Admin.switchTab('stats', this)">📊 Stats</button>
+                <button class="admin-tab" onclick="Admin.switchTab('users', this)">👥 Usuários</button>
+                <button class="admin-tab" onclick="Admin.switchTab('forum', this)">💬 Fórum</button>
+                <button class="admin-tab" onclick="Admin.switchTab('content', this)">✏️ Conteúdo</button>
+                <button class="admin-tab" onclick="Admin.switchTab('api', this)">🔑 API Key</button>
+            </div>
+            
+            <div class="admin-panel" id="adminStats">
+                <div class="admin-stats-grid">
+                    <div class="admin-stat-card">
+                        <i class="ri-user-line"></i>
+                        <span class="admin-stat-value" id="adminStatUsers">0</span>
+                        <span class="admin-stat-label">Usuários</span>
+                    </div>
+                    <div class="admin-stat-card">
+                        <i class="ri-chat-3-line"></i>
+                        <span class="admin-stat-value" id="adminStatPosts">0</span>
+                        <span class="admin-stat-label">Posts</span>
+                    </div>
+                    <div class="admin-stat-card">
+                        <i class="ri-zap-line"></i>
+                        <span class="admin-stat-value" id="adminStatXP">0</span>
+                        <span class="admin-stat-label">XP Total</span>
+                    </div>
+                    <div class="admin-stat-card">
+                        <i class="ri-key-line"></i>
+                        <span class="admin-stat-value" id="adminStatAPI">—</span>
+                        <span class="admin-stat-label">Status API</span>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="admin-panel" id="adminUsers" style="display:none;">
+                <div class="admin-search">
+                    <input type="text" class="form-input" placeholder="Buscar usuário..." id="adminUserSearch" oninput="Admin.searchUsers()">
+                </div>
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>#</th>
+                            <th>Usuário</th>
+                            <th>Nome</th>
+                            <th>Role</th>
+                            <th>XP</th>
+                            <th>Cadastro</th>
+                            <th>Ações</th>
+                        </tr>
+                    </thead>
+                    <tbody id="adminUsersTable">
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="admin-panel" id="adminForum" style="display:none;">
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>Título</th>
+                            <th>Autor</th>
+                            <th>Tag</th>
+                            <th>Votos</th>
+                            <th>Ação</th>
+                        </tr>
+                    </thead>
+                    <tbody id="adminForumTable">
+                    </tbody>
+                </table>
+            </div>
+            
+            <div class="admin-panel" id="adminContent" style="display:none;">
+                <div class="form-group">
+                    <label>Título principal</label>
+                    <input type="text" class="form-input" id="contentTitle" value="Aprenda a programar de verdade.">
+                </div>
+                <div class="form-group">
+                    <label>Subtítulo</label>
+                    <input type="text" class="form-input" id="contentSubtitle" value="Do zero ao avançado. Conceitos claros, exercícios práticos e um caminho organizado.">
+                </div>
+                <div class="form-group">
+                    <label>Aviso no topo</label>
+                    <input type="text" class="form-input" id="contentNotice" placeholder="Aviso importante...">
+                </div>
+                <button class="btn btn-primary" onclick="Admin.saveContent()">Salvar alterações</button>
+            </div>
+            
+            <div class="admin-panel" id="adminApi" style="display:none;">
+                <div class="form-group">
+                    <label>Gemini API Key</label>
+                    <input type="text" class="form-input" id="apiKeyInput" placeholder="Cole sua chave Gemini aqui...">
+                    <small class="form-hint">⚠️ Em produção, esta chave deve ficar apenas no backend. Aqui é apenas para demonstração local.</small>
+                </div>
+                <div class="api-status" id="apiStatus">
+                    <span class="status-dot not-configured"></span>
+                    <span id="apiStatusText">Não configurada</span>
+                </div>
+                <div class="admin-api-actions">
+                    <button class="btn btn-primary" onclick="Admin.saveAPIKey()">Salvar</button>
+                    <button class="btn btn-secondary" onclick="Admin.testAPI()">Testar</button>
+                    <button class="btn btn-danger" onclick="Admin.removeAPI()">Remover</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts - ordem de carregamento -->
+    <script src="js/02-utilitarios.js"></script>
+    <script src="js/03-armazenamento-db.js"></script>
+    <script src="js/04-tema-dark-light.js"></script>
+    <script src="js/06-gamificacao.js"></script>
+    <script src="js/05-autenticacao.js"></script>
+    <script src="js/07-roadmap.js"></script>
+    <script src="js/08-conceitos.js"></script>
+    <script src="js/09-exercicios.js"></script>
+    <script src="js/10-editor-codigo.js"></script>
+    <script src="js/11-chat-ia-codebot.js"></script>
+    <script src="js/12-forum-comunidade.js"></script>
+    <script src="js/13-ranking-usuarios.js"></script>
+    <script src="js/14-painel-admin.js"></script>
+    <script src="js/01-app-inicializacao.js"></script>
+</body>
+</html>

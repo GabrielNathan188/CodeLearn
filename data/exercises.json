@@ -1,0 +1,60 @@
+{
+  "exercises": [
+    {
+      "id": "ex_hello_world",
+      "difficulty": "iniciante",
+      "title": "Hello World",
+      "description": "Escreva um programa que exiba \"Olá, Mundo!\" na tela.",
+      "language": "JavaScript",
+      "xp": 10
+    },
+    {
+      "id": "ex_soma",
+      "difficulty": "iniciante",
+      "title": "Soma de dois números",
+      "description": "Crie uma função que recebe dois números e retorna a soma entre eles.",
+      "language": "JavaScript",
+      "xp": 15
+    },
+    {
+      "id": "ex_par_impar",
+      "difficulty": "iniciante",
+      "title": "Par ou Ímpar",
+      "description": "Crie uma função que verifica se um número é par ou ímpar.",
+      "language": "JavaScript",
+      "xp": 15
+    },
+    {
+      "id": "ex_fatorial",
+      "difficulty": "medio",
+      "title": "Número Fatorial",
+      "description": "Calcule o fatorial de um número.",
+      "language": "JavaScript",
+      "xp": 25
+    },
+    {
+      "id": "ex_palindromo",
+      "difficulty": "medio",
+      "title": "Verificador de Palíndromo",
+      "description": "Verifique se uma palavra é um palíndromo.",
+      "language": "JavaScript",
+      "xp": 30
+    },
+    {
+      "id": "ex_ordenacao",
+      "difficulty": "avancado",
+      "title": "Ordenação Bubble Sort",
+      "description": "Implemente o algoritmo Bubble Sort.",
+      "language": "JavaScript",
+      "xp": 50
+    },
+    {
+      "id": "ex_fibonacci",
+      "difficulty": "avancado",
+      "title": "Sequência de Fibonacci",
+      "description": "Gere os primeiros N números da sequência de Fibonacci.",
+      "language": "JavaScript",
+      "xp": 40
+    }
+  ]
+}

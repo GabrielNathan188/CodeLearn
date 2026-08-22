@@ -1,0 +1,82 @@
+{
+  "roadmap": {
+    "iniciante": [
+      {
+        "id": "logic",
+        "title": "Lógica de Programação",
+        "duration": "2-3 semanas",
+        "topics": ["variáveis", "condicionais", "loops", "funções"]
+      },
+      {
+        "id": "language",
+        "title": "Escolha uma linguagem",
+        "duration": "3-4 semanas",
+        "topics": ["JavaScript", "Python", "sintaxe", "tipos"]
+      },
+      {
+        "id": "project",
+        "title": "Primeiro projeto real",
+        "duration": "2 semanas",
+        "topics": ["planejamento", "implementação", "debug"]
+      },
+      {
+        "id": "git",
+        "title": "Git & GitHub",
+        "duration": "1 semana",
+        "topics": ["commit", "branch", "push", "pull"]
+      }
+    ],
+    "intermediario": [
+      {
+        "id": "data_structures",
+        "title": "Estruturas de Dados",
+        "duration": "4 semanas",
+        "topics": ["arrays", "listas", "pilhas", "filas", "árvores"]
+      },
+      {
+        "id": "algorithms",
+        "title": "Algoritmos",
+        "duration": "4-6 semanas",
+        "topics": ["ordenação", "busca", "recursão", "complexidade"]
+      },
+      {
+        "id": "oop",
+        "title": "Orientação a Objetos",
+        "duration": "3 semanas",
+        "topics": ["classes", "herança", "polimorfismo"]
+      },
+      {
+        "id": "database",
+        "title": "Banco de Dados",
+        "duration": "3 semanas",
+        "topics": ["SQL", "modelagem", "relacionamentos", "NoSQL"]
+      }
+    ],
+    "avancado": [
+      {
+        "id": "patterns",
+        "title": "Design Patterns",
+        "duration": "4 semanas",
+        "topics": ["GoF", "criacionais", "estruturais", "comportamentais"]
+      },
+      {
+        "id": "architecture",
+        "title": "Arquitetura de Software",
+        "duration": "6 semanas",
+        "topics": ["microserviços", "MVC", "Clean Architecture", "DDD"]
+      },
+      {
+        "id": "testing",
+        "title": "Testes Automatizados",
+        "duration": "3 semanas",
+        "topics": ["unitários", "integração", "TDD"]
+      },
+      {
+        "id": "devops",
+        "title": "DevOps & Deploy",
+        "duration": "4 semanas",
+        "topics": ["CI/CD", "Docker", "cloud", "monitoramento"]
+      }
+    ]
+  }
+}

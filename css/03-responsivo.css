@@ -1,0 +1,386 @@
+/* ============================================
+   CodeLearn - Responsivo
+   ============================================ */
+
+/* Desktop grande */
+@media (max-width: 1200px) {
+    .nav-links {
+        gap: 4px;
+    }
+    
+    .nav-links a {
+        padding: 8px 10px;
+        font-size: 0.85rem;
+    }
+}
+
+/* Notebook / Tablet grande */
+@media (max-width: 1024px) {
+    .nav-links {
+        display: none;
+    }
+    
+    .mobile-toggle {
+        display: flex;
+    }
+    
+    .nav-links.mobile-open {
+        display: flex;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        right: 0;
+        flex-direction: column;
+        background: var(--surface);
+        border-bottom: 1px solid var(--border);
+        padding: 16px;
+        gap: 4px;
+    }
+    
+    .nav-links.mobile-open a {
+        padding: 12px 16px;
+        border-radius: var(--radius-sm);
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .footer-brand {
+        grid-column: span 2;
+    }
+    
+    .dashboard-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .dash-card.badges-card {
+        grid-column: span 2;
+    }
+    
+    .admin-stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .editor-split {
+        grid-template-columns: 1fr;
+    }
+    
+    .editor-pane:first-child {
+        border-right: none;
+        border-bottom: 1px solid var(--border);
+    }
+}
+
+/* Tablet */
+@media (max-width: 768px) {
+    .section {
+        padding: 70px 0;
+    }
+    
+    .container {
+        padding: 0 16px;
+    }
+    
+    .nav-container {
+        padding: 0 16px;
+    }
+    
+    .hero {
+        padding: 90px 16px 50px;
+    }
+    
+    .hero-title {
+        font-size: clamp(2rem, 10vw, 3.5rem);
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .hero-buttons .btn {
+        width: 100%;
+        max-width: 280px;
+    }
+    
+    .hero-stats {
+        gap: 32px;
+    }
+    
+    .roadmap-cards {
+        grid-template-columns: 1fr;
+    }
+    
+    .concepts-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .concept-card.expanded {
+        grid-column: span 1;
+    }
+    
+    .tips-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .exercise-item {
+        flex-wrap: wrap;
+        gap: 12px;
+    }
+    
+    .exercise-difficulty {
+        order: 1;
+    }
+    
+    .exercise-info {
+        order: 3;
+        flex-basis: 100%;
+    }
+    
+    .exercise-lang {
+        order: 2;
+    }
+    
+    .exercise-xp {
+        order: 4;
+        margin-left: auto;
+    }
+    
+    .forum-post {
+        flex-direction: column;
+        gap: 12px;
+    }
+    
+    .post-votes {
+        flex-direction: row;
+        min-width: auto;
+    }
+    
+    .dashboard-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .dash-card.badges-card {
+        grid-column: span 1;
+    }
+    
+    .chat-container {
+        height: 450px;
+    }
+    
+    .message-content {
+        max-width: 85%;
+    }
+    
+    .modal-content {
+        width: 95%;
+        padding: 24px;
+    }
+    
+    .admin-modal .modal-content {
+        width: 100%;
+        max-height: 100vh;
+        border-radius: 0;
+    }
+    
+    .admin-modal h2 {
+        padding: 20px 20px 0;
+    }
+    
+    .admin-tabs {
+        padding: 12px 20px;
+        overflow-x: auto;
+        flex-wrap: nowrap;
+    }
+    
+    .admin-panel {
+        padding: 20px;
+    }
+    
+    .admin-table {
+        display: block;
+        overflow-x: auto;
+    }
+    
+    .toast-container {
+        right: 16px;
+        left: 16px;
+        top: 80px;
+    }
+    
+    .toast {
+        min-width: auto;
+        width: 100%;
+    }
+    
+    .footer-content {
+        grid-template-columns: 1fr;
+        gap: 32px;
+    }
+    
+    .footer-brand {
+        grid-column: span 1;
+    }
+    
+    .editor-toolbar {
+        flex-wrap: wrap;
+    }
+    
+    .toolbar-spacer {
+        display: none;
+    }
+    
+    .ranking-item {
+        gap: 12px;
+        padding: 14px 16px;
+    }
+    
+    .badges-grid {
+        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
+        gap: 12px;
+    }
+}
+
+/* Celular */
+@media (max-width: 480px) {
+    .section {
+        padding: 50px 0;
+    }
+    
+    .section-header {
+        margin-bottom: 40px;
+    }
+    
+    .section-title {
+        font-size: 1.6rem;
+    }
+    
+    .hero-eyebrow {
+        font-size: 0.7rem;
+        padding: 6px 12px;
+    }
+    
+    .hero-subtitle {
+        font-size: 0.95rem;
+    }
+    
+    .hero-stats {
+        gap: 20px;
+    }
+    
+    .stat-number {
+        font-size: 1.5rem;
+    }
+    
+    .stat-label {
+        font-size: 0.75rem;
+    }
+    
+    .tabs {
+        gap: 4px;
+    }
+    
+    .tab-btn {
+        padding: 8px 16px;
+        font-size: 0.85rem;
+    }
+    
+    .btn-lg {
+        padding: 12px 20px;
+        font-size: 0.95rem;
+    }
+    
+    .user-name {
+        display: none;
+    }
+    
+    .roadmap-card, .concept-card, .tip-card {
+        padding: 20px;
+    }
+    
+    .exercise-item {
+        padding: 16px;
+    }
+    
+    .chat-input-area {
+        padding: 12px;
+        gap: 8px;
+    }
+    
+    .send-btn {
+        width: 44px;
+        height: 44px;
+    }
+    
+    .message-content {
+        max-width: 100%;
+    }
+    
+    .admin-stats-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .admin-stat-card {
+        padding: 16px;
+    }
+    
+    .admin-stat-value {
+        font-size: 1.4rem;
+    }
+    
+    .stats-grid {
+        grid-template-columns: 1fr 1fr;
+    }
+    
+    .streak-number {
+        font-size: 2.5rem;
+    }
+    
+    .code-editor, .code-output {
+        padding: 14px;
+        font-size: 0.85rem;
+    }
+}
+
+/* Celular pequeno */
+@media (max-width: 360px) {
+    .hero-title {
+        font-size: 1.8rem;
+    }
+    
+    .nav-logo .logo-text {
+        font-size: 1.1rem;
+    }
+    
+    .badges-grid {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
+/* Ajustes para telas muito altas */
+@media (min-height: 900px) {
+    .hero {
+        min-height: 85vh;
+    }
+}
+
+/* Ajustes para modo paisagem em celular */
+@media (max-height: 500px) and (orientation: landscape) {
+    .hero {
+        min-height: auto;
+        padding: 90px 24px 40px;
+    }
+    
+    .hero-title {
+        font-size: 2rem;
+    }
+    
+    .hero-buttons {
+        margin-bottom: 30px;
+    }
+    
+    .hero-scroll {
+        display: none;
+    }
+}
