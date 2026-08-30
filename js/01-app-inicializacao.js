@@ -17,7 +17,7 @@ const App = {
         Roadmap.init();
         Concepts.init();
         Editor.init();
-        AI.init();
+        await AI.init();
 
         await Promise.all([
             Exercises.init(),

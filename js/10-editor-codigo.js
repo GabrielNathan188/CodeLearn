@@ -68,7 +68,15 @@ const Editor = {
         // Registra execução se usuário logado
         if (Auth.currentUser) {
             Api.post('/gamificacao/codigo-executado', {}, true)
-                .then(resultado => Gamification.aplicarResultadoXP(resultado, 2))
+                .then(resultado => {
+                    if (resultado.limiteDiarioAtingido) {
+                        Auth.currentUser = resultado.usuario;
+                        Auth.updateUI();
+                        Gamification.updateDashboard();
+                    } else {
+                        Gamification.aplicarResultadoXP(resultado, resultado.xpGanho);
+                    }
+                })
                 .catch(() => {});
         }
     },

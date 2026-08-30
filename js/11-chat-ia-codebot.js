@@ -27,10 +27,14 @@ const AI = {
         por_onde_comecar: 'Para começar a programar:\n\n1. **Escolha uma linguagem**: JavaScript ou Python são ótimas para iniciantes\n2. **Aprenda lógica**: variáveis, condicionais, loops, funções\n3. **Pratique muito**: faça exercícios e pequenos projetos\n4. **Use a comunidade**: tire dúvidas no fórum\n5. **Construa projetos**: um portfólio vale mais que certificados\n\nComece pelo nosso Roadmap na seção "Iniciante"!'
     },
 
-    init() {
-        // Configura se API key existe
-        const settings = DB.get('settings', {});
-        this.apiConfigured = settings.apiConfigured || false;
+    async init() {
+        // Configura se API de IA está habilitada (vem do backend agora)
+        try {
+            const { configuracoes } = await Api.get('/admin/configuracoes');
+            this.apiConfigured = configuracoes?.api_configurada || false;
+        } catch (e) {
+            this.apiConfigured = false;
+        }
     },
 
     /**

@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
@@ -27,20 +26,20 @@
     <!-- Navbar -->
     <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="#" class="nav-logo" onclick="navigateTo('hero')">
+            <a href="#" class="nav-logo" onclick="return navigateTo('hero')">
                 <span class="logo-icon"><i class="ri-terminal-box-fill"></i></span>
                 <span class="logo-text">CodeLearn</span>
             </a>
             
             <ul class="nav-links" id="navLinks">
-                <li><a href="#" onclick="navigateTo('roadmap')">Roadmap</a></li>
-                <li><a href="#" onclick="navigateTo('concepts')">Conceitos</a></li>
-                <li><a href="#" onclick="navigateTo('exercises')">Exercícios</a></li>
-                <li><a href="#" onclick="navigateTo('tips')">Dicas</a></li>
-                <li><a href="#" onclick="navigateTo('editor')">Editor</a></li>
-                <li><a href="#" onclick="navigateTo('ai')">IA</a></li>
-                <li><a href="#" onclick="navigateTo('community')">Comunidade</a></li>
-                <li><a href="#" onclick="navigateTo('dashboard')" id="navDashboard" style="display:none;">Dashboard</a></li>
+                <li><a href="#" onclick="return navigateTo('roadmap')">Roadmap</a></li>
+                <li><a href="#" onclick="return navigateTo('concepts')">Conceitos</a></li>
+                <li><a href="#" onclick="return navigateTo('exercises')">Exercícios</a></li>
+                <li><a href="#" onclick="return navigateTo('tips')">Dicas</a></li>
+                <li><a href="#" onclick="return navigateTo('editor')">Editor</a></li>
+                <li><a href="#" onclick="return navigateTo('ai')">IA</a></li>
+                <li><a href="#" onclick="return navigateTo('community')">Comunidade</a></li>
+                <li><a href="#" onclick="return navigateTo('dashboard')" id="navDashboard" style="display:none;">Dashboard</a></li>
             </ul>
             
             <div class="nav-actions">
@@ -57,8 +56,8 @@
                         <i class="ri-arrow-down-s-line"></i>
                     </button>
                     <div class="user-dropdown" id="userDropdown">
-                        <a href="#" onclick="navigateTo('dashboard')"><i class="ri-dashboard-line"></i> Dashboard</a>
-                        <a href="#" onclick="navigateTo('ranking')"><i class="ri-trophy-line"></i> Ranking</a>
+                        <a href="#" onclick="return navigateTo('dashboard')"><i class="ri-dashboard-line"></i> Dashboard</a>
+                        <a href="#" onclick="return navigateTo('ranking')"><i class="ri-trophy-line"></i> Ranking</a>
                         <a href="#" onclick="Admin.openIfAdmin()" id="adminLink" style="display:none;"><i class="ri-shield-star-line"></i> Admin</a>
                         <hr>
                         <a href="#" onclick="Auth.logout()" class="logout"><i class="ri-logout-box-line"></i> Sair</a>
@@ -91,10 +90,10 @@
                 e um caminho organizado para qualquer nível.
             </p>
             <div class="hero-buttons">
-                <button class="btn btn-primary btn-lg" onclick="navigateTo('roadmap')">
+                <button class="btn btn-primary btn-lg" onclick="return navigateTo('roadmap')">
                     Começar agora <i class="ri-arrow-right-line"></i>
                 </button>
-                <button class="btn btn-secondary btn-lg" onclick="navigateTo('exercises')">
+                <button class="btn btn-secondary btn-lg" onclick="return navigateTo('exercises')">
                     Ver exercícios
                 </button>
             </div>
@@ -423,16 +422,16 @@
                 </div>
                 <div class="footer-links">
                     <h4>Plataforma</h4>
-                    <a href="#" onclick="navigateTo('roadmap')">Roadmap</a>
-                    <a href="#" onclick="navigateTo('concepts')">Conceitos</a>
-                    <a href="#" onclick="navigateTo('exercises')">Exercícios</a>
-                    <a href="#" onclick="navigateTo('editor')">Editor</a>
+                    <a href="#" onclick="return navigateTo('roadmap')">Roadmap</a>
+                    <a href="#" onclick="return navigateTo('concepts')">Conceitos</a>
+                    <a href="#" onclick="return navigateTo('exercises')">Exercícios</a>
+                    <a href="#" onclick="return navigateTo('editor')">Editor</a>
                 </div>
                 <div class="footer-links">
                     <h4>Comunidade</h4>
-                    <a href="#" onclick="navigateTo('community')">Fórum</a>
-                    <a href="#" onclick="navigateTo('ranking')">Ranking</a>
-                    <a href="#" onclick="navigateTo('ai')">CodeBot IA</a>
+                    <a href="#" onclick="return navigateTo('community')">Fórum</a>
+                    <a href="#" onclick="return navigateTo('ranking')">Ranking</a>
+                    <a href="#" onclick="return navigateTo('ai')">CodeBot IA</a>
                 </div>
             </div>
             <div class="footer-bottom">
